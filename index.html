@@ -2,6 +2,8 @@
 layout: default
 ---
 
-{% for example in site.static_files.examples %}
-    {{ example.path }}<br>
+{% for file in site.static_files %}
+    {% if file.path contains 'examples/' %}
+        {{ file.path }}<br>
+    {% endif %}
 {% endfor %}
