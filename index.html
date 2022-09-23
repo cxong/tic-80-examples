@@ -3,7 +3,7 @@ layout: default
 ---
 
 {% for file in site.static_files %}
-    {% if file.path contains 'examples/' %}
+    {% if file.path contains '/examples/' %}
         {{ file.path }}<br>
     {% endif %}
 {% endfor %}
