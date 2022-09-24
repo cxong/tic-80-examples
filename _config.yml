@@ -1,1 +1,6 @@
 baseurl: /tic-80-examples
+defaults:
+  - scope:
+      path: "examples/*"
+    values:
+      example: true

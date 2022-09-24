@@ -2,8 +2,7 @@
 layout: default
 ---
 
-{% for file in site.static_files %}
-    {% if file.path contains '/examples/' %}
-        {{ file.path }}<br>
-    {% endif %}
+{% assign examples = site.static_files | where: "example", true %}
+{% for file in examples %}
+    {{ file.path }}<br>
 {% endfor %}
