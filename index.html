@@ -2,11 +2,15 @@
 layout: default
 ---
 
-{% assign examples = site.static_files %}
 {% for file in site.static_files %}
     {{ file.path }}<br>
 {% endfor %}
 
-{% for page in site.pages %}
-    {{ page.title }} ({{ page.url }})
+{% assign examples = site.static_files | where: "example", true %}
+{{ examples }}
+{# map{|file| file.split('/')[2]}.uniq() #}
+<ul>
+{% for example in examples %}
+    <li>{{ example }}</li>
 {% endfor %}
+</ul>

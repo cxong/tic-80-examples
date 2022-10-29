@@ -1,7 +1,6 @@
 baseurl: /tic-80-examples
 defaults:
   - scope:
-      type: examples
+      path: "examples/*"
     values:
-      layout: example_page
-      permalink: example/:example/
+      example: true
