@@ -6,9 +6,14 @@ layout: default
     {{ file.path }}<br>
 {% endfor %}
 
-{% assign examples = site.static_files | where: "example", true | map: "path" %}
+{% assign example_paths = site.static_files | where: "example", true | map: "path" %}
+{% assign examples = '' | split: '' %}
+{% for path in example_paths %}
+    {% assign example = path | split: '/' | slice: 2 %}
+    {% assign examples = examples | concat: example %}
+{% endfor %}
 {{ examples }}
-{# map{|file| file.split('/')[2]}.uniq() #}
+{% assign examples = examples | uniq %}
 <ul>
 {% for example in examples %}
     <li>{{ example }}</li>
