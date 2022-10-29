@@ -12,10 +12,15 @@ layout: default
     {% assign example = path | split: '/' | slice: 2 %}
     {% assign examples = examples | concat: example %}
 {% endfor %}
-{{ examples }}
 {% assign examples = examples | uniq %}
 <ul>
 {% for example in examples %}
-    <li>{{ example }}</li>
+    <li>
+        <a href="{{ site.baseurl }}/example?id={{ example }}">
+            <img src="{{ site.baseurl }}/examples/{{ example }}/out.html/screen.gif" /> todo multi-language img path
+            {{ example }} (todo title)
+            todo tags, desc
+        </a>
+    </li>
 {% endfor %}
 </ul>
