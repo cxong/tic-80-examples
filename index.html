@@ -6,3 +6,7 @@ layout: default
 {% for file in site.static_files %}
     {{ file.path }}<br>
 {% endfor %}
+
+{% for page in site.pages %}
+    {{ page.title }} ({{ page.url }})
+{% endfor %}
