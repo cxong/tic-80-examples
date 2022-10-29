@@ -6,7 +6,7 @@ layout: default
     {{ file.path }}<br>
 {% endfor %}
 
-{% assign examples = site.static_files | where: "example", true %}
+{% assign examples = site.static_files | where: "example", true | map(attribute='path') %}
 {{ examples }}
 {# map{|file| file.split('/')[2]}.uniq() #}
 <ul>
