@@ -9,6 +9,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  TIC80: tic80-v1.0
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -32,13 +35,13 @@ jobs:
         uses: actions/cache@v3
         with:
           path: tic80
-          key: tic-80
+          key: ${{ env.TIC80 }}
       - name: Download TIC-80
         if: steps.cache-tic-80.outputs.cache-hit != 'true'
         run: |
-          curl -LO https://github.com/nesbox/TIC-80/releases/download/v1.0.2164/tic80-v1.0-linux.zip
-          unzip tic80-v1.0-linux.zip
-          rm tic80-v1.0-linux.zip
+          curl -LO https://github.com/nesbox/TIC-80/releases/download/v1.0.2164/${TIC80}-linux.zip
+          unzip ${TIC80}-linux.zip
+          rm ${TIC80}-linux.zip
           chmod a+x tic80
       - name: Build Carts
         run: ./.github/workflows/build-carts.sh
