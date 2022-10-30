@@ -39,6 +39,7 @@ jobs:
           curl -LO https://github.com/nesbox/TIC-80/releases/download/v1.0.2164/tic80-v1.0-linux.zip
           unzip tic80-v1.0-linux.zip
           rm tic80-v1.0-linux.zip
+          chmod a+x tic80
       - name: Build Carts
         run: ./.github/workflows/build-carts.sh
       - name: Setup Pages
