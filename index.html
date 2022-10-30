@@ -2,7 +2,11 @@
 layout: default
 ---
 
-{{ site.pages }}
+<ul>
+{% for page in site.pages %}
+    <li>{ page.path }}</li>{
+{% endfor %}
+</ul>
 
 {% for file in site.static_files %}
     {{ file.path }}<br>
