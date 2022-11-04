@@ -7,7 +7,7 @@ for example in examples/*; do
         cart="${example}/src.${ext}"
         if [ -f "$cart" ]; then
             ./.github/workflows/tic80 --cmd="load ${cart} & export html ${example}/${ext}.html & exit" --fs=. --cli
-            unzip ${example}/${ext}.html.zip
+            unzip ${example}/${ext}.html.zip -d $example
             rm ${example}/${ext}.html.zip
         fi
     done
