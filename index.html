@@ -12,6 +12,17 @@ layout: default
     {{ file.path }}<br>
 {% endfor %}
 
+{% for post in paginator.posts %}
+<div class="article">
+    <div class="well">
+        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        <div class="content">
+            {{ post.content }}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
 {% assign example_paths = site.static_files | where: "example", true | map: "path" %}
 {% assign examples = '' | split: '' %}
 {% for path in example_paths %}
