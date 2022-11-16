@@ -1,6 +1,7 @@
 ---
 layout: example
 title: "POST-TITLE"
+date: 2022-11-12
 categories: CATEGORY-1 CATEGORY-2
 ---
 
