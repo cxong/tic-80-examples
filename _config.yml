@@ -4,3 +4,4 @@ defaults:
       path: "examples/*"
     values:
       example: true
+paginate: 20
