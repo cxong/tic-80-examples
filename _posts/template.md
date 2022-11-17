@@ -1,7 +1,8 @@
 ---
 layout: example
-title: "${TITLE}"
-categories: ${TAGS}
+title: ${TITLE}
+desc: ${DESC}
+tags: ${TAGS}
 ---
 
-${DESC}
+Stuff goes here

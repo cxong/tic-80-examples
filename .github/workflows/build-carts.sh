@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 declare -a exts=("lua" "moon" "wren" "js" "fnl")
 
@@ -12,7 +13,7 @@ for example in examples/*; do
             unzip ${example}/${ext}.html.zip -d $example/$ext
             rm ${example}/${ext}.html.zip
             # Create post
-            eval $(cat examples/${example}/meta.env) envsubst < _posts/template.md > _posts/2022-01-01-${example}.md
+            eval $(cat ${example}/meta.env) envsubst < _posts/template.md > _posts/2022-01-01-$(basename ${example}).md
         fi
     done
 done
