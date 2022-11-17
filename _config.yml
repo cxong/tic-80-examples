@@ -5,3 +5,4 @@ defaults:
     values:
       example: true
 paginate: 20
+permalink: /:categories/:title
