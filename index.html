@@ -12,16 +12,19 @@ layout: default
     {{ file.path }}<br>
 {% endfor %}
 
+<ul class="carts">
 {% for post in paginator.posts %}
-<div class="article">
-    <div class="well">
-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-        <div class="content">
-            {{ post.desc }}
-        </div>
+<li class="cart">
+    <a href="{{ site.baseurl }}{{ post.url }}">
+        <img src="{{ site.baseurl }}/examples/{{ post.base }}/cart.png" />
+    </a>
+    <div class="meta">
+        {{ post.desc }}
     </div>
-</div>
+    <!-- TODO multi language links -->
+</li>
 {% endfor %}
+</ul>
 
 {% assign example_paths = site.static_files | where: "example", true | map: "path" %}
 {% assign examples = '' | split: '' %}
@@ -29,15 +32,3 @@ layout: default
     {% assign example = path | split: '/' | slice: 2 %}
     {% assign examples = examples | concat: example %}
 {% endfor %}
-{% assign examples = examples | uniq %}
-<ul>
-{% for example in examples %}
-    <li>
-        <a href="{{ site.baseurl }}/example?id={{ example }}">
-            <img src="{{ site.baseurl }}/examples/{{ example }}/out.html/screen.gif" /> todo multi-language img path
-            {{ example }} (todo title)
-            todo tags, desc
-        </a>
-    </li>
-{% endfor %}
-</ul>
