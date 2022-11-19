@@ -11,7 +11,7 @@ REQ_METAS = {"title", "desc", "script"}
 
 
 def run_tic80_cart_cmd(cart: Path, cmd: str):
-    os.system(f'./.github/workflows/tic80 --fs=. --cli --cmd="load {cart} & ${cmd} & exit"')
+    os.system(f'./.github/workflows/tic80 --fs=. --cli --cmd="load {cart} & {cmd} & exit"')
 
 
 def build_cart(example: Path, cart: Path) -> bool:
