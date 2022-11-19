@@ -32,6 +32,7 @@ for example in examples/*; do
             run_tic80_cart_cmd $cart "save ${example}/cart.png"
             # Create post
             export BASE=$(basename ${example})
+            export LANG=${ext}
             # TODO: get all variables from cart
             eval $(cat ${example}/meta.env) envsubst < _posts/template.md > _posts/2022-01-01-${BASE}.md
         fi

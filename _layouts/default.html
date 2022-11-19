@@ -1,9 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" />
+    {% include header.html %}
   </head>
   <body>
     <nav>
@@ -13,8 +12,6 @@
     <section>
       {{ content }}
     </section>
-    <footer>
-      &copy; congusbongusgames
-    </footer>
+    {% include footer.html %}
   </body>
 </html>
