@@ -1,9 +1,7 @@
 -- title:   Draw sector
 -- author:  congusbongus
 -- desc:    Draw a sector of a circle using a fan of triangles
--- site:    https://cxong.github.io/tic-80-examples/
 -- license: CC0
--- version: 0.1
 -- script:  moon
 -- tags:    sector draw circle semi-circle fan triangle
 

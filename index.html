@@ -3,16 +3,6 @@ layout: default
 title: TIC-80 Examples
 ---
 
-<ul>
-{% for page in site.pages %}
-    <li>{{ page.path }}</li>
-{% endfor %}
-</ul>
-
-{% for file in site.static_files %}
-    {{ file.path }}<br>
-{% endfor %}
-
 <ul class="carts">
 {% for post in paginator.posts %}
 <li class="cart">
@@ -26,3 +16,15 @@ title: TIC-80 Examples
 </li>
 {% endfor %}
 </ul>
+
+<script>
+console.log("Pages:")
+{% for page in site.pages %}
+console.log("- {{ page.path }}")
+{% endfor %}
+
+console.log("Files:")
+{% for file in site.static_files %}
+console.log("- {{ file.path }}")
+{% endfor %}
+</script>
