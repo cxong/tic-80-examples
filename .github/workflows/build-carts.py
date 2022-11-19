@@ -18,7 +18,7 @@ def build_cart(example: Path, cart: Path) -> bool:
      # Get metadata from cart: title, author, desc, site, license, version, script
     meta = {}
     for line in subprocess.check_output(["strings", str(cart)]):
-        match = re.match(META_PATTERN, line)
+        match = META_PATTERN.match(line)
         if match:
             meta[match.group(1)] = match.group(2)
     # Check for required env vars
