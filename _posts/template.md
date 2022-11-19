@@ -7,4 +7,5 @@ lang: ${LANG}
 base: ${BASE}
 ---
 
-<iframe src="{{ site.baseurl }}/examples/${BASE}/${LANG}/index.html" title="Example cart"></iframe>
+<iframe src="{{ site.baseurl }}/examples/${BASE}/${LANG}/index.html" title="Example cart"
+width="720" height="408"></iframe>

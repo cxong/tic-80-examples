@@ -5,6 +5,7 @@
 -- license: CC0
 -- version: 0.1
 -- script:  moon
+-- tags:    sector draw circle semi-circle fan triangle
 
 sector = (x,y,dx,dy,iterations,dstart,dend,colors) ->
     d=2*math.pi/iterations
