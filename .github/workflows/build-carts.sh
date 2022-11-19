@@ -14,7 +14,7 @@ for example in examples/*; do
         cart="${example}/src.${ext}"
         if [ -f "$cart" ]; then
             # Get metadata from cart: title, author, desc, site, license, version, script
-            eval $(strings ${cart} | pcregrep -o1 -o2 --om-separator== "^(?:;;|\/\/|#|--) (\S+):\s*(.+)$")
+            eval $(strings ${cart} | pcregrep -o1 -o2 --om-separator== "^(?:;;|\/\/|#|--) (\S+):\s*(.+)$" | sed --regexp-extended 's/=(.+)/="\1"/')
 
             # Check for required env vars
             if [[ -z "${title}" ]]; then
