@@ -32,7 +32,7 @@ jobs:
         with:
           packages: pcregrep
       - name: Build Carts
-        run: ./.github/workflows/build-carts.sh
+        run: ./.github/workflows/build-carts.py
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
