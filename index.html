@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<h1>TIC-80 Examples</h1>
+
 <ul>
 {% for page in site.pages %}
     <li>{{ page.path }}</li>
@@ -25,10 +27,3 @@ layout: default
 </li>
 {% endfor %}
 </ul>
-
-{% assign example_paths = site.static_files | where: "example", true | map: "path" %}
-{% assign examples = '' | split: '' %}
-{% for path in example_paths %}
-    {% assign example = path | split: '/' | slice: 2 %}
-    {% assign examples = examples | concat: example %}
-{% endfor %}
