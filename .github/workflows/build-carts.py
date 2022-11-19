@@ -17,7 +17,7 @@ def run_tic80_cart_cmd(cart: Path, cmd: str):
 def build_cart(example: Path, cart: Path) -> bool:
      # Get metadata from cart: title, author, desc, site, license, version, script
     meta = {}
-    for line in subprocess.check_output(["strings", str(cart)]):
+    for line in subprocess.check_output(["strings", str(cart)]).split(b"\n"):
         match = META_PATTERN.match(line.decode("utf-8"))
         if match:
             meta[match.group(1)] = match.group(2)
