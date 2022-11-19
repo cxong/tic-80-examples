@@ -47,7 +47,7 @@ def build_cart(example: Path, cart: Path) -> bool:
 
     # Create post
     with open(Path("_posts") / "template.md") as file:
-        contents = file.read().format(meta=meta, base=example.stem)
+        contents = file.read().format(**meta, base=example.stem)
     with open(Path("_posts") / f"2022-01-01-{example.stem}.md") as file:
         file.write(contents)
 
