@@ -45,9 +45,15 @@ def build_cart(example: Path, cart: Path) -> bool:
     # Save PNG
     run_tic80_cart_cmd(cart, f"save {example}/cart.png")
 
+    # Add code
+    code = "See cart for code..."
+    if cart.stem == "src":
+        with open(cart) as file:
+            code = file.read()
+
     # Create post
     with open(Path("_posts") / "template.md") as file:
-        contents = file.read().format(**meta, base=example.stem)
+        contents = file.read().format(**meta, base=example.stem, code=code)
     with open(Path("_posts") / f"2022-01-01-{example.stem}.md", "w") as file:
         file.write(contents)
 
