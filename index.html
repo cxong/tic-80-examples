@@ -3,28 +3,28 @@ layout: default
 title: TIC-80 Examples
 ---
 
-<ul class="carts">
+<div class="carts">
 {% for post in paginator.posts %}
-<li class="cart">
-    <a href="{{ site.baseurl }}{{ post.url }}">
-        <img src="{{ site.baseurl }}/examples/{{ post.base }}/cart.png" />
-    </a>
-    <div class="meta">
-        {{ post.desc }}
-    </div>
-    <!-- TODO multi language links -->
-</li>
+<div class="card cart">
+  <a href="{{ site.baseurl }}{{ post.url }}">
+    <img src="{{ site.baseurl }}/examples/{{ post.base }}/cart.png" class="card-img-top" />
+  </a>
+  <div class="card-body">
+    <p class="card-text meta">{{ post.desc }}</p>
+  </div>
+  <!-- TODO multi language links -->
+</div>
 {% endfor %}
-</ul>
+</div>
 
 <script>
 console.log("Pages:")
-{% for page in site.pages %}
+{% for page in site.pages -%}
 console.log("- {{ page.path }}")
 {% endfor %}
 
 console.log("Files:")
-{% for file in site.static_files %}
+{% for file in site.static_files -%}
 console.log("- {{ file.path }}")
 {% endfor %}
 </script>

@@ -7,9 +7,11 @@ lang: {script}
 base: {base}
 ---
 
-<iframe src="{{{{ site.baseurl }}}}/examples/{base}/{script}/index.html" title="Example cart"
-width="720" height="408"></iframe>
+<iframe id="cart" src="{{{{ site.baseurl }}}}/examples/{base}/{script}/index.html" title="Example cart"
+width="768" height="432"></iframe>
 
-<textarea class="code" readonly>
-{code}
-</textarea>
+<div class="input-group">
+  <textarea class="code form-control" aria-label="With textarea" readonly>
+  {code}
+  </textarea>
+</div>
