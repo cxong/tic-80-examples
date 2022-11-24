@@ -11,7 +11,5 @@ base: {base}
 width="768" height="432"></iframe>
 
 <div class="input-group">
-  <textarea class="code form-control" aria-label="With textarea" readonly>
-  {code}
-  </textarea>
+  <textarea class="code form-control" aria-label="With textarea" readonly rows="24">{code}</textarea>
 </div>
