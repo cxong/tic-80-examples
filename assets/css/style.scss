@@ -4,6 +4,11 @@
   float: left;
   width: 256px;
 }
+.code {
+  background-image: url('{{ site.baseurl }}/assets/img/paper.png');
+  border: none;
+  font-family: 'Dot Matrix', sans-serif;
+}
 .footer {
   position: absolute;
   bottom: 0;
