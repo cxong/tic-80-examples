@@ -8,10 +8,11 @@
   background-attachment: local;
   background-image: url('{{ site.baseurl }}/assets/img/paper.png');
   background-position-y: 5px;
-  border: none;
+  border-image-repeat: repeat;
   border-image-source: url('{{ site.baseurl }}/assets/img/paper_hole.png');
-  border-image-slice: 0 100%;
+  border-image-slice: 0 36;
   border-radius: 0;
+  border-width: 36px;
   font-family: 'Apple II Screen Typeface', sans-serif;
   tab-size: 11;
   word-spacing: 7px;
