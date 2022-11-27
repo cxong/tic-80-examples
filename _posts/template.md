@@ -11,5 +11,5 @@ base: {base}
 width="768" height="432"></iframe>
 
 <div class="input-group">
-  <pre><code class="code">{code}</code></pre>
+  <pre><code class="code language-{script}">{code}</code></pre>
 </div>
