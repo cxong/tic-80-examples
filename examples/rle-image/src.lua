@@ -1,6 +1,6 @@
 -- title:   Draw RLE image
 -- author:  congusbongus
--- desc:    example of drawing an arbitrary image, compressed with run-length encoding
+-- desc:    Draw an arbitrary image, compressed with run-length encoding
 -- license: CC0
 -- script:  lua
 -- tags:    compression image draw
