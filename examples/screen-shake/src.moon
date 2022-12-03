@@ -1,9 +1,9 @@
--- title:   Glitch
+-- title:   Screen shake
 -- author:  congusbongus, Vadim
--- desc:    Change screen offset in every scanline
+-- desc:    Shake the screen
 -- license: MIT License
 -- script:  moon
--- tags:    draw glitch effect animation
+-- tags:    draw shake effect
 
 t=0
 x=96
@@ -23,6 +23,7 @@ export TIC=->
 	if btnp(4) or btnp(5)
 		shake=30
 	if shake>0
+		poke(0x3FF9,math.random(-d,d))
 		poke(0x3FF9+1,math.random(-d,d))
 		shake-=1
 		if shake==0
@@ -30,12 +31,8 @@ export TIC=->
 
 	cls 13
 	spr 1+(t%60)//30*2,x,y,14,3,0,0,2,2
-	print("PRESS A/B TO GLITCH!",54,64)
+	print("PRESS A/B TO SHAKE!",54,64)
 	t+=1
-
-export BDR=(row)->
-	if shake>0
-		poke(0x3FF9,math.random(-d,d))
 
 -- <TILES>
 -- 001:eccccccccc888888caaaaaaaca888888cacccccccacc0ccccacc0ccccacc0ccc
