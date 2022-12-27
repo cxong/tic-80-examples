@@ -5,6 +5,12 @@
   width: 256px;
   height: 360px;
 }
+.cart-frame {
+  padding: 16px;
+  background-image: url('{{ site.baseurl }}/assets/img/monitor.png');
+  background-size: 768px 432px;
+  image-rendering: pixelated;
+}
 .code {
   background-attachment: local;
   background-image: url('{{ site.baseurl }}/assets/img/paper.png');
