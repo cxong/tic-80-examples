@@ -6,8 +6,9 @@
   height: 360px;
 }
 .cart-frame {
-  padding: 16px;
+  padding: 48px 0;
   background-image: url('{{ site.baseurl }}/assets/img/monitor.png');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: 864px 528px;
   image-rendering: pixelated;
