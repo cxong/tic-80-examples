@@ -8,7 +8,8 @@
 .cart-frame {
   padding: 16px;
   background-image: url('{{ site.baseurl }}/assets/img/monitor.png');
-  background-size: 768px 432px;
+  background-repeat: no-repeat;
+  background-size: 864px 528px;
   image-rendering: pixelated;
 }
 .code {
