@@ -10,21 +10,10 @@ title: TIC-80 Examples
     <img src="{{ site.baseurl }}/examples/{{ post.base }}/cart.png" class="card-img-top" />
   </a>
   <div class="card-body">
-    <p class="card-text meta">{{ post.desc }}</p>
+    <p class="card-text">{{ post.desc }}</p>
+    <p class="card-text"><small class="text-muted">🏷️ {{ post.tags }}</small></p>
   </div>
   <!-- TODO multi language links -->
 </div>
 {% endfor %}
 </div>
-
-<script>
-console.log("Pages:")
-{% for page in site.pages -%}
-console.log("- {{ page.path }}")
-{% endfor %}
-
-console.log("Files:")
-{% for file in site.static_files -%}
-console.log("- {{ file.path }}")
-{% endfor %}
-</script>
