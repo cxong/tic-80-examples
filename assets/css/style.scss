@@ -6,7 +6,8 @@ body {
 .cart {
   float: left;
   width: 256px;
-  height: 360px;
+  height: 380px;
+  margin: 5px;
 }
 .cart-frame {
   padding: 48px 0;
@@ -34,7 +35,10 @@ body {
   bottom: 0;
   width: 100%;
 }
+.cart > .card-body {
+  padding: 10px;
+}
 .card-text {
-  font-size: x-small;
-  text-shadow: 1px 1px black;
+  font-size: small;
+  text-shadow: 0 2px black;
 }
