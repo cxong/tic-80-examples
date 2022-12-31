@@ -5,6 +5,8 @@ body {
 }
 .cart {
   float: left;
+  font-size: small;
+  text-shadow: 0 2px black;
   width: 256px;
   height: 380px;
   margin: 5px;
@@ -38,7 +40,6 @@ body {
 .cart > .card-body {
   padding: 10px;
 }
-.card-text {
-  font-size: small;
-  text-shadow: 0 2px black;
+.cart > .card-footer {
+  padding: 5px 10px;
 }
