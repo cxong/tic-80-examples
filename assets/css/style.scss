@@ -12,11 +12,11 @@ body {
   margin: 5px;
 }
 .cart-frame {
-  padding: 48px 0;
+  padding: 48px 0 186px 0;
   background-image: url('{{ site.baseurl }}/assets/img/monitor.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 864px 528px;
+  background-size: 1056px 672px;
   image-rendering: pixelated;
 }
 .code {
