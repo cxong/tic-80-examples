@@ -39,9 +39,13 @@ body {
 }
 .cart > .card-body {
   padding: 10px;
+  overflow-y: scroll;
 }
 .cart > .card-footer {
   padding: 5px 10px;
+}
+.cart-tag {
+  margin: 0 -10px;
 }
 
 .hljs-ln-numbers {

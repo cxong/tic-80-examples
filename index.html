@@ -15,7 +15,9 @@ title: TIC-80 Examples
   <div class="card-footer text-muted">
     🏷️
     {% for tag in post.tags %}
-    <span class="badge badge-secondary">{{ tag }}</span>
+    <a href="{{ site.baseurl }}/tags/{{ tag }}">
+      <span class="cart-tag badge badge-secondary">{{ tag }}</span>
+    </a>
     {% endfor %}
   </div>
   <!-- TODO multi language links -->
