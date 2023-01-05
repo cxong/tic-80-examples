@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build Carts
+      - name: Build Carts and Tag Pages
         run: ./.github/workflows/build-carts.py
       - name: Setup Pages
         uses: actions/configure-pages@v2

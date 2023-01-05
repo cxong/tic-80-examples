@@ -4,6 +4,7 @@ import re
 import subprocess
 import zipfile
 from pathlib import Path
+from typing import Iterable
 
 EXTS = {"lua", "moon", "wren", "js", "fnl"}
 META_PATTERN = re.compile(r"^(?:;;|\/\/|#|--) (\S+):\s*(.+)\s*$")
@@ -15,7 +16,7 @@ def run_tic80_cart_cmd(cart: Path, cmd: str):
 
 
 def build_cart(example: Path, cart: Path) -> bool:
-     # Get metadata from cart: title, author, desc, site, license, version, script
+    # Get metadata from cart: title, author, desc, site, license, version, script
     meta = {}
     for line in subprocess.check_output(["strings", str(cart)]).split(b"\n"):
         match = META_PATTERN.match(line.decode("utf-8"))
@@ -58,15 +59,38 @@ def build_cart(example: Path, cart: Path) -> bool:
         file.write(contents)
 
 
+def get_cart_tags(cart: Path) -> Iterable[str]:
+    # Get metadata from cart: title, author, desc, site, license, version, script
+    for line in subprocess.check_output(["strings", str(cart)]).split(b"\n"):
+        match = META_PATTERN.match(line.decode("utf-8"))
+        if match:
+            meta = match.group(1)
+            if meta == "tags":
+                return match.group(2).split()
+    return []
+
+
+all_tags = set()
+
 for example in Path("examples").iterdir():
     if not example.is_dir():
         continue
     for ext in EXTS:
         # Try both "src.moon" and "moon.tic"
+        tags = []
         cart = example / f"src.{ext}"
         if cart.exists():
             build_cart(example, cart)
+            tags = get_cart_tags(cart)
         else:
             cart = example / f"{ext}.tic"
             if cart.exists():
                 build_cart(example, cart)
+                tags = get_cart_tags(cart)
+        for tag in tags:
+            all_tags.add(tag)
+
+for tag in all_tags:
+    # Create tag page
+    with open(Path("_tags") / f"{tag}.md", "w") as file:
+        file.write(f"---\nlayout: default\ntag-name: {tag}\n---\n")
