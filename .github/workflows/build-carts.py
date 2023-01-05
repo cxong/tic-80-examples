@@ -90,6 +90,7 @@ for example in Path("examples").iterdir():
         for tag in tags:
             all_tags.add(tag)
 
+Path("_tags").mkdir(exist_ok=True)
 for tag in all_tags:
     # Create tag page
     with open(Path("_tags") / f"{tag}.md", "w") as file:
