@@ -100,6 +100,6 @@ tag-name: {tag}
 title: Tag: {tag}
 robots: noindex
 ---
-{{% include carts.html tag={tag} %}}
+{{% include carts.html %}}
 """)
     print(f"Created tag page {tag}")
