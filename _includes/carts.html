@@ -1,0 +1,23 @@
+<div class="carts">
+  {% for post in paginator.posts %}
+  {% if not include.tag or include.tag in post.tags %}
+  <div class="card cart text-bg-secondary">
+    <a href="{{ site.baseurl }}{{ post.url }}">
+      <img src="{{ site.baseurl }}/examples/{{ post.base }}/cart.png" class="card-img-top" />
+    </a>
+    <div class="card-body">
+      <p class="card-text">{{ post.desc }}</p>
+    </div>
+    <div class="card-footer text-muted">
+      🏷️
+      {% for tag in post.tags %}
+      <a href="{{ site.baseurl }}/tag/{{ tag }}">
+        <span class="cart-tag badge badge-secondary">{{ tag }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    <!-- TODO multi language links -->
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>

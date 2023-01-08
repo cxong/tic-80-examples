@@ -94,5 +94,12 @@ Path("tag").mkdir(exist_ok=True)
 for tag in all_tags:
     # Create tag page
     with open(Path("tag") / f"{tag}.md", "w") as file:
-        file.write(f"---\nlayout: default\ntag-name: {tag}\ntitle: Tag: {tag}\nrobots: noindex\n---\n")
+        file.write(f"""---
+layout: carts
+tag-name: {tag}
+title: Tag: {tag}
+robots: noindex
+---
+{{% include carts.html tag={tag} %}}
+""")
     print(f"Created tag page {tag}")
