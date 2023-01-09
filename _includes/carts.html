@@ -1,6 +1,6 @@
 <div class="carts">
   {% for post in paginator.posts %}
-  {% if page.tag-name == "" or post.tags contains page.tag-name %}
+  {% if include.tag-name == "" or post.tags contains include.tag-name %}
   <div class="card cart text-bg-secondary">
     <a href="{{ site.baseurl }}{{ post.url }}">
       <img src="{{ site.baseurl }}/examples/{{ post.base }}/cart.png" class="card-img-top" />
