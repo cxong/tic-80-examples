@@ -96,7 +96,7 @@ for tag in all_tags:
     with open(Path("tag") / f"{tag}.md", "w") as file:
         file.write(f"""---
 layout: carts
-title: Tag: {tag}
+title: "Tag: {tag}"
 robots: noindex
 ---
 {{% include carts.html tag-name="{tag}" %}}
