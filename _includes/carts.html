@@ -11,9 +11,9 @@
     <div class="card-footer text-muted">
       🏷️
       {% for tag in post.tags %}
-      <span class="cart-tag badge badge-secondary">
-        <a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a>
-      </span>
+      <a href="{{ site.baseurl }}/tag/{{ tag }}">
+        <span class="cart-tag badge badge-secondary">{{ tag }}</span>
+      </a>
       {% endfor %}
     </div>
     <!-- TODO multi language links -->

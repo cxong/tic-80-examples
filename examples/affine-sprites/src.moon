@@ -4,25 +4,11 @@
 -- license: Unlicense
 -- version: 0.1
 -- script:  moon
--- tags:    draw transform affine sprite
+-- tags:    draw transform affine sprite skew shear rotate scale
   
 aspr=(
-  id,
-  x,
-  y,
-  colorkey=-1,
-  sx=1,
-  sy=1,
-  flip=0,
-  rotate=0,
-  w=1,
-  h=1,
-  ox=w*8//2,
-  oy=h*8//2,
-  shx1=0,
-  shy1=0,
-  shx2=0,
-  shy2=0
+  id,x,y,colorkey=-1,sx=1,sy=1,flip=0,rotate=0,w=1,h=1,
+  ox=w*8//2,oy=h*8//2,shx1=0,shy1=0,shx2=0,shy2=0
 )->
   -- Draw a sprite using two textured triangles.
   -- Apply affine transformations: scale, shear, rotate, flip
