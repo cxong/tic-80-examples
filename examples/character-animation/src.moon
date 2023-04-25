@@ -50,8 +50,6 @@ aspr=(
   ttri(x1,y1,x2,y2,x3,y3,u1,v1,u2,v1,u1,v2,false,colorkey)
   ttri(x3,y3,x4,y4,x2,y2,u1,v2,u2,v2,u2,v1,false,colorkey)
 
-FONTW=6
-
 class ToggleButton
   new:(x,y,sprites,label,colorkey,textcolor)=>
     @x=x
@@ -60,7 +58,7 @@ class ToggleButton
     @label=label
     @colorkey=colorkey
     @textcolor=textcolor
-    @width=string.len(label)*FONTW+8
+    @width=print label,0,-6
     @height=8
     @wasDown=false
     @value=false

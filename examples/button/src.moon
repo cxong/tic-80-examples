@@ -1,73 +1,68 @@
--- title:   Checkbox
+-- title:   Button
 -- author:  congusbongus
--- desc:    clickable checkbox UI element with label
+-- desc:    clickable button UI element with label
 -- license: MIT
 -- version: 0.1
 -- script:  moon
 -- tags:    ui input
 
-CHECKBOXSPRITES={16,32}
-TEXTCOLOR=12
+FONTH=6
 
-class Checkbox
-  new:(x,y,label,colorkey,textcolor)=>
+class Button
+  new:(x,y,w,h,label,textcolor,fillcolor,hovercolor)=>
     @x=x
     @y=y
     @label=label
-    @colorkey=colorkey
     @textcolor=textcolor
-    @width=print label,0,-6
-    @height=8
+    @fillcolor=fillcolor
+    @hovercolor=hovercolor
+    @width=w
+    @height=h
+    @textw=print label,0,-6
     @wasDown=false
-    @value=false
+    @hover=false
+    @clicked=false
 
   update:=>
     mx,my,left=mouse!
-    hover=mx>=@x and mx<=@x+@width and my>=@y and my<=@y+@height
+    @hover=mx>=@x and mx<=@x+@width and my>=@y and my<=@y+@height
     -- Change cursor: hand
-    if hover
+    if @hover
       poke(0x3FFB,129)
     -- Clicking on press
-    if left and hover and not @wasDown
-      @value=not @value
+    @clicked=false
+    if left and @hover and not @wasDown
+      @clicked=true
     @wasDown=left
 
   draw:=>
-    print @label,@x+10,@y+2,@textcolor
-    sprite=CHECKBOXSPRITES[1]
-    if @value
-      sprite=CHECKBOXSPRITES[2]
-    spr sprite,@x,@y,@colorkey
+    -- border
+    rectb @x,@y,@width,@height,@textcolor
+    -- fill
+    fillcolor=@fillcolor
+    if @hover
+        fillcolor=@hovercolor
+        if @wasDown
+            fillcolor=@textcolor
+    rect @x+1,@y+1,@width-2,@height-2,fillcolor
+    -- label centered
+    print @label,@x+(@width-@textw)/2,@y+(@height-FONTH)/2,@textcolor
 
 x=96
 y=64
-checkbox=Checkbox(48,32,"click me to toggle ticcy",0,TEXTCOLOR)
+clicks=0
+button=Button(84,84,64,16,"click me",12,6,5)
 
 export TIC=->
-  cls 14
-
-  id=1
-  if checkbox.value
-    id=3
+  cls 13
 
   poke(0x3FFB,128)  -- cursor pointer
-  checkbox\update!
-  checkbox\draw!
-  spr id,x,y,14,3,0,0,2,2
+  button\update!
+  if button.clicked
+    clicks+=1
+  button\draw!
+  print "Clicks: #{clicks}",96,64,0
 
-
--- <TILES>
--- 001:eccccccccc888888caaaaaaaca888888cacccccccacc0ccccacc0ccccacc0ccc
--- 002:ccccceee8888cceeaaaa0cee888a0ceeccca0cee0cca0ccc0cca0c0c0cca0c0c
--- 003:eccccccccc888888caaaaaaaca888888cacccccccacc0ccccacc0ccccacc0ccc
--- 004:ccccceee8888cceeaaaa0cee888a0ceeccca0cee0cca0ccc0cca0c0c0cca0c0c
--- 016:dddddddddffffffddf00000ddf00000ddf00000ddf00000ddf00000ddddddddd
--- 017:cacccccccaaaaaaacaaacaaacaaaaccccaaaaaaac8888888cc000cccecccccec
--- 018:ccca0c0caaaa00cccaaa0cceaaaa0ceeaaaa0cee8888ccee000cceeecccceeee
--- 019:cacccccccaaaaaaacaaacccccaaa0000caaaa0ddc8888888cc000cccecccccec
--- 020:ccca0c0caaaa00cccaaa0cce0aaa0ceeaaaa0cee8888ccee000cceeecccceeee
--- 032:ddddddd5dfffff56df00056ddf00560ddf00500d5f05600d6565000dd656dddd
--- </TILES>
 
 -- <SCREEN>
 -- 000:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
