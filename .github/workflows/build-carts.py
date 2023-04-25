@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import html
 import os
 import re
 import subprocess
@@ -54,7 +55,7 @@ def build_cart(example: Path, cart: Path) -> bool:
 
     # Create post
     with open(Path("_posts") / "template.md") as file:
-        contents = file.read().format(**meta, base=example.stem, code=code)
+        contents = file.read().format(**meta, base=example.stem, code=html.escape(code))
     with open(Path("_posts") / f"2022-01-01-{example.stem}.md", "w") as file:
         file.write(contents)
 
