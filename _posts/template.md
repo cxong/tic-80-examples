@@ -15,5 +15,5 @@ base: {base}
 </div>
 
 <div class="input-group">
-  <pre><code class="code language-{script}">{code}</code></pre>
+  <pre><code class="code language-{script}">{code|e}</code></pre>
 </div>
