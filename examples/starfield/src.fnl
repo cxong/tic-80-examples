@@ -6,6 +6,9 @@
 ;; strict:  true
 ;; tags:    draw parallax effect
 
+;; Adapted from this is my mech by emma bukaceck and phil hagelberg
+;; https://tic80.com/play?cart=817
+
 (var t 0)
 (var x 96)
 (var y 24)
