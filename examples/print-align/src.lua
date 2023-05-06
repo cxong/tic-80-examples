@@ -1,4 +1,4 @@
--- title:   Print Align
+-- title:   Print align
 -- author:  JoaoPauloVF, congusbongus
 -- desc:    Print text with alignment options
 -- license: MIT License
