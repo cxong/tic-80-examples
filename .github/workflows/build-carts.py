@@ -73,7 +73,7 @@ def get_cart_tags(cart: Path) -> Iterable[str]:
 
 all_tags = set()
 
-for example in Path("examples").iterdir():
+for example in Path("carts").iterdir():
     if not example.is_dir():
         continue
     for ext in EXTS:

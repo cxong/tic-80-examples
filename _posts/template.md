@@ -9,7 +9,7 @@ base: {base}
 
 <div class="text-center">
   <div class="cart-frame">
-    <iframe id="cart" src="{{{{ site.baseurl }}}}/examples/{base}/{script}/index.html" title="Example cart"
+    <iframe id="cart" src="{{{{ site.baseurl }}}}/carts/{base}/{script}/index.html" title="Example cart"
   width="768" height="432"></iframe>
   </div>
 </div>

@@ -1,7 +1,7 @@
 baseurl: /tic-80-examples
 defaults:
   - scope:
-      path: "examples/*"
+      path: "carts/*"
     values:
       example: true
 paginate: 20
