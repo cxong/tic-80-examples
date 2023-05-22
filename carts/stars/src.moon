@@ -24,9 +24,6 @@ norm=(x,y)->
 		return 1,0
 	return x/d,y/d
 
-clamp=(v,min,max)->
-    return math.min(math.max(v,min),max)
-
 class Star
     new:()=>
         @x=WIDTH/2
@@ -54,8 +51,8 @@ class Star
         dfactor=(math.abs(@x-WIDTH/2)+math.abs(@y-HEIGHT/2))/(WIDTH/2)
         sfactor=(math.abs(@dx)+math.abs(@dy)-SPEEDMIN)/(SPEEDMAX-SPEEDMIN)/25
         mfactor=math.sqrt(dfactor*sfactor)
-        c=COLORS[#COLORS]-math.min(math.floor(mfactor*@mag*#COLORS),#COLORS-1)
-        pix(@x,@y,c)
+        i=#COLORS-math.min(math.floor(mfactor*@mag*#COLORS),#COLORS-1)
+        pix(@x,@y,COLORS[i])
 
 class StarGenerator
     new:(n,interval)=>

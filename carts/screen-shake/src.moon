@@ -3,7 +3,7 @@
 -- desc:    Shake the screen
 -- license: MIT License
 -- script:  moon
--- tags:    draw shake effect
+-- tags:    draw screen shake effect
 
 t=0
 x=96

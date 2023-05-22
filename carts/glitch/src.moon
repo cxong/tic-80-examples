@@ -3,7 +3,7 @@
 -- desc:    Change screen offset in every scanline
 -- license: MIT License
 -- script:  moon
--- tags:    draw glitch effect animation
+-- tags:    draw screen glitch effect animation
 
 t=0
 x=96
