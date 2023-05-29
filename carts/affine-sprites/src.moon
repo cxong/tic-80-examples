@@ -25,14 +25,15 @@ aspr=(
   shy1*=-sy
   shx2*=-sx
   shy2*=-sy
-  rot=(x, y, rotate)->
-    sa = math.sin(math.rad(rotate))
-    ca = math.cos(math.rad(rotate))
+  rr=math.rad(rotate)
+  sa=math.sin(rr)
+  ca=math.cos(rr)
+  rot=(x,y)->
     return x * ca - y * sa, x * sa + y * ca
-  rx1, ry1 = rot(ox + shx1, oy + shy1, rotate)
-  rx2, ry2 = rot(((w * 8) * sx) + ox + shx1, oy + shy2, rotate)
-  rx3, ry3 = rot(ox + shx2, ((h * 8) * sy) + oy + shy1, rotate)
-  rx4, ry4 = rot(((w * 8) * sx) + ox + shx2, ((h * 8) * sy) + oy + shy2, rotate)
+  rx1, ry1 = rot(ox + shx1, oy + shy1)
+  rx2, ry2 = rot(((w * 8) * sx) + ox + shx1, oy + shy2)
+  rx3, ry3 = rot(ox + shx2, ((h * 8) * sy) + oy + shy1)
+  rx4, ry4 = rot(((w * 8) * sx) + ox + shx2, ((h * 8) * sy) + oy + shy2)
   x1 = x + rx1
   y1 = y + ry1
   x2 = x + rx2
@@ -47,8 +48,8 @@ aspr=(
   u2=u1+w*8
   v2=v1+h*8
 
-  ttri(x1,y1,x2,y2,x3,y3,u1,v1,u2,v1,u1,v2,false,colorkey)
-  ttri(x3,y3,x4,y4,x2,y2,u1,v2,u2,v2,u2,v1,false,colorkey)
+  ttri(x1,y1,x2,y2,x3,y3,u1,v1,u2,v1,u1,v2,0,colorkey)
+  ttri(x3,y3,x4,y4,x2,y2,u1,v2,u2,v2,u2,v1,0,colorkey)
 
 t=0
 
@@ -65,29 +66,30 @@ export TIC=->
   xstart=32
   dx=56
 
+  w,h=2,2
   x,y=xstart,24
 
   -- Basic sprite (drop-in spr replacement)
   print "base",x-4,y+24,textcolor,false,1,true
-  aspr id,x,y,colorkey,sx,sy,flip,0,2,2
+  aspr id,x,y,colorkey,sx,sy,flip,0,w,h
   x+=dx
 
   -- scale x
   sx1=math.abs(t%60-30)/10+0.25
   print "scale x=#{sx1}",x-24,y+24,textcolor,false,1,true
-  aspr id,x,y,colorkey,sx1,sy,flip,0,2,2,ox,oy
+  aspr id,x,y,colorkey,sx1,sy,flip,0,w,h,ox,oy
   x+=dx
 
   -- scale y
   sy1=math.abs(t%60-30)/10+0.25
   print "scale y=#{sy1}",x-24,y+24,textcolor,false,1,true
-  aspr id,x,y,colorkey,sx,sy1,flip,0,2,2,ox,oy
+  aspr id,x,y,colorkey,sx,sy1,flip,0,w,h,ox,oy
   x+=dx
 
   -- rotate
   rotate=t%360
   print "rotate r=#{rotate}",x-20,y+24,textcolor,false,1,true
-  aspr id,x,y,colorkey,sx,sy,flip,rotate,2,2,ox,oy
+  aspr id,x,y,colorkey,sx,sy,flip,rotate,w,h,ox,oy
 
   y+=64
   x=xstart
@@ -95,25 +97,25 @@ export TIC=->
   -- shear x1
   shx1=(math.abs(t%60-30)-15)/5
   print "shear x1=#{shx1}",x-24,y+24,textcolor,false,1,true
-  aspr id,x,y,colorkey,sx,sy,flip,0,2,2,ox,oy,shx1
+  aspr id,x,y,colorkey,sx,sy,flip,0,w,h,ox,oy,shx1
   x+=dx
 
   -- shear y1
   shy1=(math.abs(t%60-30)-15)/5
   print "shear y1=#{shy1}",x-24,y+24,textcolor,false,1,true
-  aspr id,x,y,colorkey,sx,sy,flip,0,2,2,ox,oy,0,shy1
+  aspr id,x,y,colorkey,sx,sy,flip,0,w,h,ox,oy,0,shy1
   x+=dx
 
   -- shear x2
   shx2=(math.abs(t%60-30)-15)/5
   print "shear x2=#{shx2}",x-24,y+24,textcolor,false,1,true
-  aspr id,x,y,colorkey,sx,sy,flip,0,2,2,ox,oy,0,0,shx2
+  aspr id,x,y,colorkey,sx,sy,flip,0,w,h,ox,oy,0,0,shx2
   x+=dx
 
   -- shear y2
   shy2=(math.abs(t%60-30)-15)/5
   print "shear y1=#{shy2}",x-24,y+24,textcolor,false,1,true
-  aspr id,x,y,colorkey,sx,sy,flip,0,2,2,ox,oy,0,0,0,shy2
+  aspr id,x,y,colorkey,sx,sy,flip,0,w,h,ox,oy,0,0,0,shy2
   x+=dx
 
   print "flip=#{flip}",100,124,textcolor,false,1,true
